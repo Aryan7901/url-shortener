@@ -26,6 +26,7 @@ async function submit(url: string) {
     shortUrl.value = data.shortUrl;
     urlState.addUrl(url, shortUrl.value);
     errorText.value = "";
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     console.log(error);
     errorText.value = error?.message;
@@ -36,14 +37,14 @@ async function submit(url: string) {
   <div
     class="flex flex-col items-center w-11/12 gap-2 p-8 m-auto mt-20 text-white rounded-2xl bg-slate-900 md:w-3/5 min-h-96"
   >
-    <h1 class="m-6 text-4xl font-semibold text-purple-500">
+    <h1 class="m-6 text-4xl font-semibold text-center text-purple-500">
       Shorten Your Link!
     </h1>
     <form
       @submit.prevent="submit(url)"
       class="flex flex-col items-center gap-2"
     >
-      <label for="url" class="m-6 text-2xl font-semibold"
+      <label for="url" class="m-6 text-2xl font-semibold text-center"
         >Enter Url to Shorten</label
       >
       <input
